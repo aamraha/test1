@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Components</title>
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="vue1">
+        <!-- template takes over this tag -->
+        <greeting></greeting>
+    </div>
+    <div id="vue2">
+        <greeting></greeting>
+    </div>
+    
+</body>
+<script>
+    // var data={
+    //     name: 'Yoshi'
+    // }
+    //name of component, function
+    Vue.component('greeting',{
+        template: '<p> I am a reusable component, my name is {{name}} <button @click="changeName">Change Name</button></p>',
+        //function is needed, it will create a fresh copy every time data is returned. its not shared by all components
+        //if defined externally, all the defs of data will change. not every comp has fresh copy.
+        data:function(){
+            return {
+                name: 'Yoshi'
+            }
+            //data
+    
+        },
+        methods:{
+            changeName:function(){
+                this.name="Mario"
+            }
+        }
+    });
+    var one= new Vue({
+    el:"#vue1",
+    data:{
+        
+    },
+    computed:{
+        
+    }
+});
+var two= new Vue({
+    el:"#vue2",
+    data:{
+       
+    },
+    computed:{
+        
+    },
+    methods:{
+        
+    }
+});
+</script>
+</html>

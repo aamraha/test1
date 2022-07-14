@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Multiple Vue</title>
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="vue1">{{title}} {{greet}}</div>
+    <div id="vue2">{{title}} {{greet}}
+        <button v-on:click="titleChange">Change Vue1 title </button>
+    </div>
+    
+</body>
+<script>
+    var one= new Vue({
+    el:"#vue1",
+    data:{
+        title:"Vue 1"
+    },
+    computed:{
+        greet:function(){
+            return "welcome to app 1";
+        }
+    }
+});
+var two= new Vue({
+    el:"#vue2",
+    data:{
+        title:"Vue 2"
+    },
+    computed:{
+        greet:function(){
+            return "welcome to app 2";
+        }
+    },
+    methods:{
+        titleChange:function(){
+            console.log("method entered")
+            one.title="new title";
+        }
+    }
+});
+two.title="changed from outside";
+</script>
+</html>
