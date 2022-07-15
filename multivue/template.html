@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Template</title>
+    <script type="text/javascript" src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="vue1"> 
+    </div>
+    
+</body>
+<script>
+  
+    Vue.component('greeting',{
+        template: '<p> I am a reusable component, my name is {{name}} <button @click="changeName">Change Name</button></p>',
+        data:function(){
+            return {
+                name: 'Yoshi'
+            }
+    
+        },
+        methods:{
+            changeName:function(){
+                this.name="Mario"
+            }
+        }
+    });
+    
+var two= new Vue({
+    el:"#vue1",
+    data:{
+       
+    },
+    computed:{
+        
+    },
+    methods:{
+        
+    }
+});
+</script>
+</html>
